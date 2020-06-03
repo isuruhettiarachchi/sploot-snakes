@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+  color: rgb(112, 76, 182);
+}
+
+@keyframes App-logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px)
+  }
+  100% {
+    transform: translateY(0px)
+  }
+}
+
+/* Layout Classes */
+.layout-content {
+  background:#3f51b5;
+  color:#FDDA00;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+.navigation-logo-button h2, .navigation-drawer-col h1 { 
+  color:#FDDA00;
+  display: inline;
+}
+
+.navigation-logo-button .caret,small,.navigation-drawer-col .ant-btn {
+  color: white;
+}
+
+.navigation-menu-bar {
+  height: 10px;
+}
+
+.navigation-drawer .ant-drawer-content-wrapper {
+  background-image: url("../images/header.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  shape-outside: -webkit-image-set();
+  overflow-y: hidden;
+}
+
+
+.navigation-drawer .ant-drawer-content-wrapper div {
+  background: none;
+  height: 200px;
+}
+
+.navigation-drawer .ant-drawer-content-wrapper {
+  box-shadow: none !important;
+  -webkit-box-shadow:none;
+  
+}
+.navigation-drawer .ant-drawer-mask {
+  background-color:rgba(0, 0, 0, 0) !important;
+}
+
+.navigation-drawer-col {
+  height: 10px !important;
+  text-align: center;
+} 

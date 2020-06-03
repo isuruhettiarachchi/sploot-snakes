@@ -1,13 +1,31 @@
-import React from 'react';
-import {BrowserRouter,Switch} from 'react-router-dom'
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Spin, Layout } from 'antd';
+import Header from './navigation/header/header';
 
 function App() {
   return (
-    <div className="App">
+    <Suspense fallback={
       <header className="App-header">
-       
-      </header>
-    </div>
+        Loading <Spin/>
+      </header>}
+      >
+      <Router>
+        <Layout className="layout">
+          <Header/>
+          <Layout.Content className="layout-content">
+            <Switch>
+              <Route>
+                
+              </Route>
+            </Switch>
+          </Layout.Content>
+          <Layout.Footer>
+            This is the Footer
+          </Layout.Footer>
+        </Layout>
+      </Router>
+    </Suspense>
   );
 }
 
