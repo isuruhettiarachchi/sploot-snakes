@@ -40,18 +40,29 @@
 
 /* Layout Classes */
 .layout-content {
+  padding: 24px;
+  min-height: 90vh;
   background:#3f51b5;
   color:#FDDA00;
-  padding: 24px;
-  min-height: 100vh;
 }
 
-.navigation-logo-button h2, .navigation-drawer-col h1 { 
+.layout-footer{ 
+  text-align: center;
+  color: white !important;
+  background-color: #1E3033!important;
+  bottom: 0px; 
+  width:100%;
+  position: absolute;
+  
+}
+
+/* Navigation Classes */
+.navigation-logo-button h2, .navigation-drawer-col h1, .navigation-drawer-mobile h1 { 
   color:#FDDA00;
   display: inline;
 }
 
-.navigation-logo-button .caret,small,.navigation-drawer-col .ant-btn {
+.navigation-logo-button .caret,small,.navigation-drawer-col .ant-btn, .navigation-drawer-mobile .ant-btn {
   color: white;
 }
 
@@ -61,7 +72,7 @@
 
 .navigation-drawer .ant-drawer-content-wrapper {
   background-image: url("../images/header.png");
-  background-position: center center;
+  background-position: center ;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
@@ -80,7 +91,7 @@
   -webkit-box-shadow:none;
   
 }
-.navigation-drawer .ant-drawer-mask {
+.navigation-drawer .ant-drawer-mask, .navigation-drawer-mobile .ant-drawer-mask {
   background-color:rgba(0, 0, 0, 0) !important;
 }
 
@@ -88,3 +99,22 @@
   height: 10px !important;
   text-align: center;
 } 
+
+
+
+/* Button Classes */
+.emphasis-on-btn {
+  background-color: purple!important;
+  border: none!important;
+  border-radius: 5px!important;
+  color: white !important;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+}
+
+.emphasis-on-btn:hover{
+  background-color: rgb(179, 14, 179)!important;
+}  
+
+
