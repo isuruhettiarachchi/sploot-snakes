@@ -2,7 +2,8 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, } from 'react-router-dom'
 import { Spin, Layout } from 'antd';
 import Header from './navigation/header/header';
-import Map from './components/map/map';
+import MapComponent from './components/map/mapComponent';
+
 
 function App() {
   return (
@@ -12,11 +13,11 @@ function App() {
       </header>}
       >
       <Router>
+      <MapComponent/>
         <Layout className="layout">
           <Header/>
           <Layout.Content>
-            <div className="layout-content">
-              <Map/>
+            <div className="layout-content" id="content">
             </div>
           </Layout.Content>
           <Layout.Footer className="layout-footer">

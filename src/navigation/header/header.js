@@ -52,8 +52,8 @@ export default function Header({menu}){
             <Button
                 onClick= {()=>setVisible(true)}
                 type="link"
-                className="navigation-logo-button"
-                > <h2>Snakes</h2> <DownCircleOutlined className="caret" /> </Button>
+                className={window.location.pathname==="/"?"navigation-logo-button navigation-logo-button-home":"navigation-logo-button"}
+                > <h2>Snakes</h2> <DownCircleOutlined  className="caret" /> </Button>
                 </Affix>
                 
         
@@ -66,6 +66,8 @@ export default function Header({menu}){
             setVisible(false)
         }}
         placement="top"
+        mask={false}
+
         className="navigation-drawer-mobile"
         drawerStyle = {{
             backgroundColor:"#1E3033",
@@ -73,10 +75,13 @@ export default function Header({menu}){
         height={150}
         >
             <h1>Snakes</h1><small>  by Sploot</small>
-            <Row justify="center">
+            <Row justify="center"     onBlur={()=>{
+            setVisible(false)
+        }}> 
                 <Button type="link"><strong>About</strong></Button>
                 <Button type="link"><strong>Sploot Project</strong></Button>
                 <Button type="link"><strong>Login</strong></Button>
+                
                 <Button type="link"
                 onClick = {() => setSubMenu(true)}
                 ><stron>More</stron> <RightCircleOutlined/></Button>
@@ -123,7 +128,7 @@ export default function Header({menu}){
             visible={subMenu}
             height={200}
             onClose={() => setSubMenu(false)}
-            placement="top"
+            
             drawerStyle = {{
                 backgroundColor:"#1E3033",
             }}

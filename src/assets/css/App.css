@@ -44,7 +44,7 @@
 .layout-content {
   padding: 24px;
   min-height: 100vh;
-  background:#3f51b5;
+  background:#336E7D;
   color:#FDDA00;
 }
 
@@ -67,6 +67,17 @@
 
 .navigation-logo-button .caret,small,.navigation-drawer-col .ant-btn, .navigation-drawer-mobile .ant-btn {
   color: white;
+}
+
+.navigation-logo-button-home h2, .navigation-logo-button .caret{
+  color:purple;
+  -webkit-text-shadow:  1px 0px 3px rgba(0,0,0,0.75);
+  -moz-text-shadow:  1px 0px 3px rgba(0,0,0,0.75);
+  text-shadow:  1px 0px 3px rgba(0,0,0,0.75);
+}
+
+.navigation-drawer-col .ant-btn:hover{
+  color:#FDDA00;
 }
 
 .navigation-menu-bar {
@@ -116,6 +127,8 @@
 
 
 
+
+
 /* Button Classes */
 .emphasis-on-btn {
   background-color: purple!important;
@@ -133,8 +146,15 @@
 
 
 /* Leaflet */
-#mapid { height: 180px; }
-
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+  margin-bottom: -400px;
+}
+.leaflet-pane {
+  position: absolute;
+  z-index: 0;
+}
 /* Z-index */
 .on-top {
   z-index: 1001;
