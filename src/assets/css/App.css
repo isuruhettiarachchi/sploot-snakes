@@ -1,3 +1,5 @@
+@import url("https://unpkg.com/leaflet@1.6.0/dist/leaflet.css");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .App {
   text-align: center;
 }
@@ -41,7 +43,7 @@
 /* Layout Classes */
 .layout-content {
   padding: 24px;
-  min-height: 90vh;
+  min-height: 100vh;
   background:#3f51b5;
   color:#FDDA00;
 }
@@ -52,12 +54,13 @@
   background-color: #1E3033!important;
   bottom: 0px; 
   width:100%;
-  position: absolute;
+  position: relative;
   
 }
 
 /* Navigation Classes */
 .navigation-logo-button h2, .navigation-drawer-col h1, .navigation-drawer-mobile h1 { 
+  font-family: 'Lobster', cursive;
   color:#FDDA00;
   display: inline;
 }
@@ -83,7 +86,7 @@
 
 .navigation-drawer .ant-drawer-content-wrapper div {
   background: none;
-  height: 200px;
+  /* height: 200px; */
 }
 
 .navigation-drawer .ant-drawer-content-wrapper {
@@ -91,14 +94,25 @@
   -webkit-box-shadow:none;
   
 }
-.navigation-drawer .ant-drawer-mask, .navigation-drawer-mobile .ant-drawer-mask {
+/* .navigation-drawer .ant-drawer-mask, .navigation-drawer-mobile .ant-drawer-mask {
   background-color:rgba(0, 0, 0, 0) !important;
-}
 
-.navigation-drawer-col {
+  width: fit-content;
+} */
+
+.navigation-drawer-col{
   height: 10px !important;
-  text-align: center;
+  text-align: start;
 } 
+
+.navigation-drawer-col-right {
+  transform: translateY(45px);
+  text-align: end;
+}
+.navigation-drawer-col-center {
+  text-align: center;
+  list-style: none;
+}
 
 
 
@@ -109,12 +123,19 @@
   border-radius: 5px!important;
   color: white !important;
   -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75)!important;
 }
 
 .emphasis-on-btn:hover{
-  background-color: rgb(179, 14, 179)!important;
+  background-color: rgb(63, 33, 86)!important;
 }  
 
 
+/* Leaflet */
+#mapid { height: 180px; }
+
+/* Z-index */
+.on-top {
+  z-index: 1001;
+}

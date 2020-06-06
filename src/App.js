@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Spin, Layout, Button } from 'antd';
+import { BrowserRouter as Router, } from 'react-router-dom'
+import { Spin, Layout } from 'antd';
 import Header from './navigation/header/header';
+import Map from './components/map/map';
 
 function App() {
   return (
@@ -15,12 +16,7 @@ function App() {
           <Header/>
           <Layout.Content>
             <div className="layout-content">
-              <Switch>
-             
-                <Route>
-                  
-                </Route>
-              </Switch>
+              <Map/>
             </div>
           </Layout.Content>
           <Layout.Footer className="layout-footer">
