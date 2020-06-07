@@ -1,27 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {Fragment} from 'react'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import {Autocomplete} from './geocoder';
+import { useSelector } from 'react-redux';
 
-export default function MapComponent(){
-    // Creates div element right before the app in the DOM tree
-    const container = document.createElement("div");
-    container.id = "map-container";
-    document.getElementById("root").appendChild(container);
-    
-    const position = [7.490390,80.363068]
+import { selectMapBound } from '../../redux/slices/clientSlice';
 
-    //Leaflet Map Component
-    const map = (
-    <Map center={position} zoom={13}>
+const position = [51.505, -0.09]
+
+export default function MapComponent() {
+  
+  const boundingBox = useSelector(selectMapBound);
+  console.log(boundingBox)
+
+  return <Fragment>
+    <Map 
+
+        className="leaflet-map-landing-page"
+        center={position} 
+        zoom={13}>
         <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-        />
-        <Marker position={position}>
-        <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          />
+        <Marker 
+        position={position}
+        draggable={true}
+        >
+          <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
         </Marker>
-    </Map>
-    )
-    
-    return ReactDOM.render(map,container);
+      </Map>
+          <Autocomplete/>
+        </Fragment>
+
 }

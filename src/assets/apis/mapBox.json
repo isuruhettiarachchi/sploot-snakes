@@ -1,0 +1,10 @@
+
+{
+    "type":"endpoints",
+    "version":"1.0",
+    "token":"pk.eyJ1Ijoic2hlaGFua3VsZSIsImEiOiJjanVsbXljYmIwbnl5NDVsOG93ZjN6a3MxIn0.M0lV10tb2YDwe5a6UK4pXA",
+    "endpoints":{
+        "base":"https://api.mapbox.com/{endpoint}?access_token={token}",
+        "geocode":""
+    }
+}

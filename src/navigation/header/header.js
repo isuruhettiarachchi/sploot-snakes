@@ -3,7 +3,7 @@ import { Layout, Button,Row, Drawer, Col, Affix, } from 'antd';
 import { DownCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
 
 export default function Header({menu}){
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
     const [mobile,setMobile] = useState(true)
     const [subMenu,setSubMenu] = useState(false)
     var lst = window.pageYOffset || document.documentElement.scrollTop;  //lst is last scroll top
@@ -84,7 +84,7 @@ export default function Header({menu}){
                 
                 <Button type="link"
                 onClick = {() => setSubMenu(true)}
-                ><stron>More</stron> <RightCircleOutlined/></Button>
+                ><strong>More</strong> <RightCircleOutlined/></Button>
             </Row>
            
   

@@ -1,0 +1,24 @@
+{
+    "type":"lang",
+    "version":"1.0",
+    "lang":"en-UK",
+    "labels":{
+
+       "header":{
+           "about": "About",
+           "about_sploot": "Sploot Project",
+           "login": "Login",
+           "logout": "Logout",
+           "register": "Register",
+           "blog": "Blog",
+           "wiki": "Snake Wiki",
+           "bites": "Snake Bites",
+           "removal": "Snake Removal",
+           "handler_mode": "I Handle Snakes" 
+       },
+
+       "map":{
+            "search_prompt":"Where's the Snake?"
+       }
+   }
+}

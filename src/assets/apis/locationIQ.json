@@ -1,0 +1,9 @@
+{
+    "type":"endpoints",
+    "version":"1.0",
+    "token":"pk.6c408c763c890ba1a82926d9488a2d7c",
+    "endpoints":{
+        "autocomplete":"https://api.locationiq.com/v1/autocomplete.php?key=TOKEN&viewbox=79.6951668639,5.96836985923,81.7879590189,9.82407766361&bouded=1&tag=place:*&q=",
+        "map":"https://tiles.locationiq.com/v2/<theme>/<type>.json?key=TOKEN"
+    }
+}
