@@ -4,6 +4,7 @@ import { Spin, Layout } from 'antd';
 import Header from './navigation/header/header';
 
 import Map from './components/map/mapComponent';
+import ResultsTable from './components/results/resultsTable';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Layout.Content>
             <div className="layout-content" id="content">
        <Map/>
+       <ResultsTable/>
             </div>
           </Layout.Content>
           <Layout.Footer className="layout-footer">

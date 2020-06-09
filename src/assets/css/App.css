@@ -167,7 +167,7 @@
 input.leaflet-map-search-bar{
     width: 70% !important;
     height:50px ;
-    bottom:50%;
+    top:320px;
     position: absolute !important;;
     border-radius: 10px;
     /* caret-color: rgba(128, 0, 128, 0); */

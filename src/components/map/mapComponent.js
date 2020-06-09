@@ -1,33 +1,49 @@
-import React, {Fragment} from 'react'
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import React, {Fragment, useState} from 'react'
+import { Map, Marker, TileLayer } from 'react-leaflet'
 import {Autocomplete} from './geocoder';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { selectMapBound } from '../../redux/slices/clientSlice';
-
-const position = [51.505, -0.09]
+import { coordinateUpdate, selectCoords } from '../../redux/slices/clientSlice';
 
 export default function MapComponent() {
   
-  const boundingBox = useSelector(selectMapBound);
-  console.log(boundingBox)
+  const [markers,setMarkers] = useState([]);
+  const position = useSelector(selectCoords);
+  const dispatch = useDispatch()
 
+  const handleMarkerDrag = (e) => {
+    dispatchCoords(e.target._latlng)
+  }
+  
+  const handleMapClick = (e) => {
+    setMarkers(<Marker 
+      draggable 
+      ondragend = {e => handleMarkerDrag(e)}
+      position={e.latlng}
+      ></Marker>);
+      dispatchCoords(e.latlng)
+      
+  }
+
+  const dispatchCoords = (latlng) => {
+    dispatch(coordinateUpdate(Object.values(latlng)))
+  }
+  
+    
   return <Fragment>
-    <Map 
-
+    <Map
+        onclick = {(e)=>handleMapClick(e)} 
         className="leaflet-map-landing-page"
         center={position} 
-        zoom={13}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-          />
-        <Marker 
-        position={position}
-        draggable={true}
+        zoom={15}
+        maxZoom={17}
         >
-          <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
-        </Marker>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            />  
+            {markers}
+
       </Map>
           <Autocomplete/>
         </Fragment>

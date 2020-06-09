@@ -5,7 +5,7 @@ import liq from '../../assets/apis/locationIQ.json';
 export const clientSlice = createSlice({
     name:'client',
     initialState: {
-        clientCoordinates: new Array(2),
+        clientCoordinates: [6.927079, 79.861244],
         currentResults: [],
         currentWrangler: null, //Document this addition in the wiki
         autocomplete: {
@@ -60,8 +60,10 @@ export const predictionsFetch = value => async dispatch => {
     })
     dispatch(predictionList(list.data))
 }
+
 // selectors
+export const selectCoords = state => state.client.clientCoordinates;
 export const selectPredText = state => state.client.autocomplete.text; 
 export const selectPredList = state => state.client.autocomplete.list;
-export const selectMapBound = state => state.client.map.boundingBox
+export const selectMapBound = state => state.client.map.boundingBox;
 export default clientSlice.reducer;
