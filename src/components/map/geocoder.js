@@ -8,27 +8,29 @@ import {
     selectPredText,
     selectPredList,
     predictionList,
-    mapBoundingBox,
-    coordinateUpdate
+    coordinateUpdate,
+    resultUpdate
 } from '../../redux/slices/clientSlice';
 
 const  {Text} = Typography
 
-export const Autocomplete = () => {
+export const Autocomplete = ({title}) => {
     const result = useSelector(selectPredText);
     const list  = useSelector(selectPredList);
     const dispatch = useDispatch();
     
     useEffect(()=>{
-        if((result&&result.length%3===0&&result.length<15)||(result&&result.charAt(result.length-1)===" "))
+        if((result&&result.length%2===0&&result.length<15)||(result&&result.charAt(result.length-1)===""))
         {
             dispatch(predictionsFetch(result))
         }
         else{
+            // TODO: Dispatching non serializable objects such as this React Instance is discouraged. Do something you moron!
             dispatch(predictionList([{
                 display_place:<div>Powered by <a 
                 href="https://locationiq.com/attribution"
                 target="_blank"
+                rel="noopener noreferrer"
                 >
                     <img
 
@@ -42,14 +44,19 @@ export const Autocomplete = () => {
     },[result,dispatch])
 
     const handlePredictionClick = (pre) => {
-        if(list.length>1){
+        if(pre.lat&&pre.lon){
             dispatch(coordinateUpdate([parseFloat(pre.lat),parseFloat(pre.lon)]));
             dispatch(predictionText(pre.display_place))
+            dispatch(resultUpdate([{
+                display_name:pre.display_name
+            }]))
         }
     }
 
     const menu = (
-        <Menu>
+        <Menu
+        className="dropdown"
+        >
             {
                 list.map((pre,k)=>{
                     return<Menu.Item 
@@ -69,14 +76,17 @@ export const Autocomplete = () => {
         </Menu>
     )
     return <Row justify="center" >
-    <Dropdown overlay={list.length?menu:<p></p>}>
+    <Dropdown 
+  
+    placement="bottomCenter"
+    overlay={list.length?menu:<p></p>}>
         <Input 
-        onChange = {(e)=> dispatch(predictionText(e.target.value))}
-        value = {result}
-        placeholder={" Where's the Snake?"}
+        onKeyUp = {(e)=> dispatch(predictionText(e.target.value))}
+        // value = {result}
+        placeholder={title}
         type="search"
         className="leaflet-map-search-bar"/>
-    </Dropdown>    
+    </Dropdown>    /
    
     </Row>
 }

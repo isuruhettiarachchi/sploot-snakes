@@ -23,7 +23,7 @@ export const clientSlice = createSlice({
             state.clientCoordinates = action.payload;
         },
         resultUpdate: (state,action) => {
-            state.currentResults += action.payload;
+            state.currentResults = action.payload;
         },
         wranglerUpdate: (state,action) => {
             state.currentWrangler = action.payload;
@@ -66,4 +66,5 @@ export const selectCoords = state => state.client.clientCoordinates;
 export const selectPredText = state => state.client.autocomplete.text; 
 export const selectPredList = state => state.client.autocomplete.list;
 export const selectMapBound = state => state.client.map.boundingBox;
+export const selectResults = state => state.client.currentResults;
 export default clientSlice.reducer;

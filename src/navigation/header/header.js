@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Button,Row, Drawer, Col, Affix, } from 'antd';
+import { Layout, Button,Row, Drawer, Col, Affix } from 'antd';
 import { DownCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
 
 export default function Header({menu}){
@@ -20,10 +20,10 @@ export default function Header({menu}){
     //Copied from an answer in https://stackoverflow.com/questions/31223341/detecting-scroll-direction
     const checkScrollDirection = () => { 
        const st =  window.pageYOffset || document.documentElement.scrollTop //st is scroll top
-       if(st>lst){
-           setVisible(false);
-       } else {
+       if(st==0){
            setVisible(true);
+       } else {
+           setVisible(false);
        }
 
        lst = st <= 0 ? 0 :st;
@@ -46,9 +46,11 @@ export default function Header({menu}){
                 position:"absolute"
             }} 
             >
+     
                 <Affix>
+
                 <Button 
-                className="emphasis-on-btn " type="primary">I Handle Snakes!</Button>
+                className="emphasis-on-btn navigation-logo-button " type="primary">I Handle Snakes!</Button>
             <Button
                 onClick= {()=>setVisible(true)}
                 type="link"
@@ -56,6 +58,7 @@ export default function Header({menu}){
                 > <h2>Snakes</h2> <DownCircleOutlined  className="caret" /> </Button>
                 </Affix>
                 
+
         
 
         {/* For window.innerWidth less than 600px */}

@@ -3,8 +3,8 @@ import { BrowserRouter as Router, } from 'react-router-dom'
 import { Spin, Layout } from 'antd';
 import Header from './navigation/header/header';
 
-import Map from './components/map/mapComponent';
-import ResultsTable from './components/results/resultsTable';
+import HomeContent from './layouts/content/home';
+import RegisterContent from './layouts/content/register';
 
 
 function App() {
@@ -19,8 +19,7 @@ function App() {
           <Header/>
           <Layout.Content>
             <div className="layout-content" id="content">
-       <Map/>
-       <ResultsTable/>
+            <RegisterContent/>
             </div>
           </Layout.Content>
           <Layout.Footer className="layout-footer">
