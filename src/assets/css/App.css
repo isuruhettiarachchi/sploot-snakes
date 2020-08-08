@@ -96,7 +96,7 @@
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.navigation-logo-button-home h2, .navigation-logo-button .caret{
+.navigation-logo-button-home h2, .navigation-logo-button {
   color:purple;
   -webkit-text-shadow:  1px 0px 3px rgba(0,0,0,0.75);
   -moz-text-shadow:  1px 0px 3px rgba(0,0,0,0.75);
@@ -194,7 +194,6 @@
 input.leaflet-map-search-bar{
     width: 70% !important;
     height:50px ;
-    /* top:320px; */
     position: absolute !important;;
     border-radius: 10px;
     color:#FDDA00!important;

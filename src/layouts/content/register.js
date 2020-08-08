@@ -58,7 +58,9 @@ export default function RegisterContent(){
                         marginBottom:"400px",
                         marginTop:"24px"
                     }}>
-                        <MapComponent title="Search Map"/>
+                        <MapComponent search={{
+                            title:"Search Map",
+                        }}/>
                     </Col>
                 </Row>
                 <Row>

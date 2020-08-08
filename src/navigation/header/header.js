@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Button,Row, Drawer, Col, Affix } from 'antd';
 import { DownCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 export default function Header({menu}){
     const [visible, setVisible] = useState(true);
@@ -48,14 +49,18 @@ export default function Header({menu}){
             >
      
                 <Affix>
+                <Link to="register">
 
                 <Button 
                 className="emphasis-on-btn navigation-logo-button " type="primary">I Handle Snakes!</Button>
+                </Link>
             <Button
                 onClick= {()=>setVisible(true)}
                 type="link"
-                className={window.location.pathname==="/"?"navigation-logo-button navigation-logo-button-home":"navigation-logo-button"}
-                > <h2>Snakes</h2> <DownCircleOutlined  className="caret" /> </Button>
+                className="navigation-logo-button"
+                // className={window.location.pathname==="/"?"navigation-logo-button navigation-logo-button-home":"navigation-logo-button-home"}
+                > 
+                <h2>Snakes</h2> <DownCircleOutlined  className="caret" /> </Button>
                 </Affix>
                 
 
@@ -76,8 +81,9 @@ export default function Header({menu}){
             backgroundColor:"#1E3033",
         }}
         height={150}
-        >
+        >   <Link to="/">
             <h1>Snakes</h1><small>  by Sploot</small>
+        </Link>
             <Row justify="center"     onBlur={()=>{
             setVisible(false)
         }}> 
@@ -108,7 +114,9 @@ export default function Header({menu}){
         >  
         <Row justify="start" style={{height:"10px"}} gutter={[24,12]}>
             <Col className="navigation-drawer-col"  md={8} sm={8} xs={10} >
+            <Link to="/">
             <h1>Snakes</h1> <small> by Sploot</small><br/>
+            </Link>
             <Button type="link"><strong>About</strong></Button>
                 <Button type="link"><strong>Sploot Project</strong></Button>
                 <Button type="link"><strong>Login</strong></Button>

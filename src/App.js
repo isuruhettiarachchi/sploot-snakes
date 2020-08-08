@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Spin, Layout } from 'antd';
 import Header from './navigation/header/header';
 
@@ -16,14 +16,19 @@ function App() {
       >
       <Router>
         <Layout className="layout">
-          <Header/>
+          <Header/>      
           <Layout.Content>
             <div className="layout-content" id="content">
-            <RegisterContent/>
+              <Switch>
+                <Route path="/" exact>
+                  <HomeContent/>
+                </Route>
+                <Route path="/register" exact component={RegisterContent}/>
+              </Switch>
             </div>
           </Layout.Content>
           <Layout.Footer className="layout-footer">
-          
+            Sploot
           </Layout.Footer>
         </Layout>
       </Router>

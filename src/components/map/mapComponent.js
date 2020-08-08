@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { coordinateUpdate, selectCoords } from '../../redux/slices/clientSlice';
 
-export default function MapComponent({title,components}) {
+export default function MapComponent({components,search}) {
   
   const [markers,setMarkers] = useState([]);
   const position = useSelector(selectCoords);
@@ -51,7 +51,7 @@ export default function MapComponent({title,components}) {
             {markers}
             {components}
       </Map>
-          <Autocomplete title={title}/>
+          <Autocomplete title={search.title} bottom={search.bottom}/>
         </Fragment>
 
 }

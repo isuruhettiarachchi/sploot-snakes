@@ -14,7 +14,7 @@ import {
 
 const  {Text} = Typography
 
-export const Autocomplete = ({title}) => {
+export const Autocomplete = ({title,bottom}) => {
     const result = useSelector(selectPredText);
     const list  = useSelector(selectPredList);
     const dispatch = useDispatch();
@@ -83,6 +83,11 @@ export const Autocomplete = ({title}) => {
         <Input 
         onKeyUp = {(e)=> dispatch(predictionText(e.target.value))}
         // value = {result}
+        style={
+            bottom&&{
+                top:"320px"
+            }
+        }
         placeholder={title}
         type="search"
         className="leaflet-map-search-bar"/>

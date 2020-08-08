@@ -6,7 +6,10 @@ import { Row,Col } from 'antd';
 export default function HomeContent(){
     return <Fragment>
         <Row justify="center">
-            <MapComponent/>
+            <MapComponent search={{
+                title: "Where is the Snake?",
+                bottom:true
+            }}/>
         </Row>
         <Row justify="center" style={{marginTop:"376px"}}>
             <Col span={24}>
